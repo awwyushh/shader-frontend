@@ -23,7 +23,7 @@ export default function ShaderGen() {
       glRef.current = null;
        
         try {
-            const vertexResponse = await axios.post('http://127.0.0.1:4000/api/shaders/vertex', {
+            const vertexResponse = await axios.post('http://shadergen-api.onrender.com/api/shaders/vertex', {
                 prompt: userInput
             }, {
                 headers: {
@@ -34,7 +34,7 @@ export default function ShaderGen() {
             const rawVertexCode = vertexResponse.data.vertex_code;
             setVertexCode(rawVertexCode);
 
-            const fragmentResponse = await axios.post('http://127.0.0.1:4000/api/shaders/fragment', {
+            const fragmentResponse = await axios.post('http://shadergen-api.onrender.com/api/shaders/fragment', {
                 vertex_code: rawVertexCode,
                 prompt: userInput
             }, {
